@@ -23,6 +23,7 @@ const displayElement = document.querySelector('#display');
 
 
 /*-------------------------------- Functions --------------------------------*/
+//display
 //solve
 //clear
 //add
@@ -30,7 +31,9 @@ const displayElement = document.querySelector('#display');
 //multiply
 //divide
 
+const display() {
 
+}
 const clearDisplay = () => {
     msg = ''; //clear display 
 }
@@ -44,19 +47,6 @@ buttons.forEach((button) => {
     });
   });
 
-calculator.addEventListener('click', (event) => {
-    // console.log(event.target.innerText);
-  
-    // Example
-    if (event.target.classList.contains('number')) {
-      // Do something with a number
-    }
-  
-    // Example
-    if (event.target.innerText === '*') {
-      // Do something with this operator
-    }
-  });
   
   
 document.querySelector('#clearButton').addEventListener('click', resetCalculator)
