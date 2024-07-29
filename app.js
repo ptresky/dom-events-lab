@@ -1,42 +1,15 @@
 /*-------------------------------- Constants --------------------------------*/
 const buttons = document.querySelectorAll('.button');
 
-//const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-//operators = ['+', '-', '*', '/', '=']
-
-
 
 /*-------------------------------- Variables --------------------------------*/
-let userSelect;
-let msg;
-
-//allow the user to click a series of buttons to form an equation. 
-//allow the user to click equals to solve the equation
-//allow 'C' to clear the calculator to start over
-//the sequence of clicked buttons should appear on the div "display"
-
+let display = document.querySelector('display')
+let num1 = 0;
+let num2 = 0;
+let operator = '';
 
 /*------------------------ Cached Element References ------------------------*/
-const calculator = document.querySelector('#calculator');
 
-const displayElement = document.querySelector('#display');
-
-
-/*-------------------------------- Functions --------------------------------*/
-//display
-//solve
-//clear
-//add
-//subtract
-//multiply
-//divide
-
-const display() {
-
-}
-const clearDisplay = () => {
-    msg = ''; //clear display 
-}
 
 /*----------------------------- Event Listeners -----------------------------*/
 buttons.forEach((button) => {
@@ -46,9 +19,32 @@ buttons.forEach((button) => {
       // Future logic to capture the button's value would go here...
     });
   });
-
   
-  
-document.querySelector('#clearButton').addEventListener('click', resetCalculator)
+
+/*-------------------------------- Functions --------------------------------*/
 
 
+const solve = () => {
+    if (operator === '+') {
+        (num1 + num2)
+    } 
+    if (operator === '-') {
+        (num1 - num2)
+    }
+    if (operator === '*') {
+        (num1 * num2)
+    }
+    if (operator === '/') {
+        (num1 /num2)
+    }
+}
+const clearDisplay = () => {
+    display.value = '';
+}
+/* 
+capture the value of one number 
+select an operator
+capture the value of a second number
+solve the equation 
+clear the display
+*/
