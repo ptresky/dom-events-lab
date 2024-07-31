@@ -3,8 +3,8 @@ const buttons = document.querySelectorAll('.button');
 const display = document.querySelector('.display')
 
 /*-------------------------------- Variables --------------------------------*/
-let num1 = 0;
-let num2 = 0;
+let num1 = '';
+let num2 = '';
 let operator = '';
 let resultDisplay = 0;
 
@@ -39,36 +39,47 @@ buttons.forEach((button) => {
       // The event.target.classList.contains() you have a few lines down
       // This method will return true or false 
       if (event.target.classList.contains('number')){
-        display.innerText = ''};
-      if (event.target.classList.contains('operator')){
-        if (operator === '+') {
-            resultDisplay = (num1 + num2)
-        } else
-        if (operator === '-') {
-            resultDisplay = (num1 - num2)
-        } else
-        if (operator === '*') {
-            resultDisplay = (num1 * num2)
-        } else
-        if (operator === '/') {
-            resultDisplay = (num1 /num2)
-        } else 
-        if (operator === 'C') {
-            resultDisplay = ''
-            num1 = 0;
-            num2 = 0;
+        if (operator === ''){
+          // console.dir(event.target)
+          //when there is no operator, 
+          // add the target number to displayText
+          display.innerText += event.target.innerText
+          // console.log(display.innerText)
+          // assign the first num to displays innerText
+          num1 = display.innerText
+        } else {
+          // when there IS an operator, 
+          // add the target number to display text
+          display.innerText += event.target.innerText
+          // because there is num1, assign second number
+          num2 = display.innerText
         }
+      
+      
+      };
+      if (event.target.classList.contains('operator')){
+        operator = event.target.innerText
+        display.innerText = '';
+        if (operator === 'C') {
+        
+            resultDisplay = 0
+            num1 = '';
+            num2 = '';
+            operator = '';
+        }
+        console.log(operator)
       }
         // code to dictate operations
       if (event.target.classList.contains('equals')){
-        calculate(eval(resultDisplay))}
+        console.log('hi')
+        calculate() //operate on num1 num2 the operation and assign result to resultDisplay
+        display.innerText = resultDisplay
+      }
         
 
       
+     
       
-        console.dir(event.target.classList);
-      console.dir(display.innerText + event.target.innerText)
-      display.innerText = display.innerText + event.target.innerText
       if (event.target.classList === false);
         calculate()
       console.log(event.target.classList.contains('number'))
@@ -80,6 +91,10 @@ buttons.forEach((button) => {
   
   
   
+  //keep track of every number before an operator is selected
+  //if operator is selected, store it
+  //any number after operator is num2
+  //when equals is selected run calculate()
 
 /*-------------------------------- Functions --------------------------------*/
 
